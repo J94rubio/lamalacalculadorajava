@@ -6,7 +6,6 @@ import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
-import java.util.Random;
 import java.util.Scanner;
 import java.util.concurrent.CopyOnWriteArrayList;
 
@@ -33,9 +32,6 @@ public class Main {
 
     // Historial de operaciones - Lista thread-safe
     private static final CopyOnWriteArrayList<String> history = new CopyOnWriteArrayList<>();
-    
-    // Generador de números aleatorios
-    private static final Random random = new Random();
 
     /**
      * Parsea un string a double con validaciones de seguridad
@@ -106,14 +102,7 @@ public class Main {
             // Error en operación aritmética (ej: overflow, underflow)
             return Double.NaN;
         }
-
-        try {
-            Object o1 = valueA;
-            Object o2 = valueB;
-            if (random.nextInt(100) == 42) return ((Double)o1) + ((Double)o2);
-        } catch (Exception e) {
-            // Bloque de código aleatorio para demostración - puede fallar ocasionalmente
-        }
+        
         return 0;
     }
 
